@@ -7,6 +7,7 @@ import P2 from '@mui/icons-material/SignalCellularAlt2BarSharp';
 import P3 from '@mui/icons-material/SignalCellularAltOutlined';
 import P4 from '@mui/icons-material/PriorityHigh';
 import Fr from '@mui/icons-material/Circle';
+import Ac from '@mui/icons-material/AccountCircle'
 
 
 function list({ title, cards, sortBy }) {
@@ -43,14 +44,15 @@ function list({ title, cards, sortBy }) {
   return (
     <div className="list">
     <div className="priority-icon">
-      {sortBy === 'priority' && renderPriorityIcon(cards[0].priority)} <p> </p> &nbsp;
+      {sortBy === 'priority' && renderPriorityIcon(cards[0].priority)} 
+      {sortBy === 'user' && <Ac />}<p> </p> &nbsp;
       {sortBy === 'priority' ?  renderPriorityTitle(cards[0].priority): title}
     </div>
     
     {cards.map((card, index) => (
       <div key={index} className="card">
         <div className="card-header">
-          <div className="card-id">{card.id}</div>
+          <div className="card-id">{card.id}</div>  {sortBy === 'user' ? null:<Ac />}
           <div className="card-title">{card.title}</div>
         </div>
         <div className="card-footer">
