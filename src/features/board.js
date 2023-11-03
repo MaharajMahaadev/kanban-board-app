@@ -1,10 +1,10 @@
 import React from 'react';
 import List from './list';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Board({ data }) {
-    const [sortBy, setSortBy] = useState('user'); 
-    const [orderBy, setOrderBy] = useState('priority'); 
+    const [sortBy, setSortBy] = useState(localStorage.getItem('sortBy') || 'user'); 
+    const [orderBy, setOrderBy] = useState(localStorage.getItem('orderBy') || 'priority'); 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
     let sortedData;
@@ -32,6 +32,11 @@ function Board({ data }) {
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);
     };
+
+    useEffect(() => {
+      localStorage.setItem('sortBy', sortBy);
+      localStorage.setItem('orderBy', orderBy);
+    }, [sortBy, orderBy]);
   
     return (
       <div className="board">

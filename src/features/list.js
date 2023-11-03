@@ -54,7 +54,7 @@ function list({ title, cards, sortBy }) {
           <div className="card-title">{card.title}</div>
         </div>
         <div className="card-footer">
-          <div className="card-priority"> {sortBy === 'priority' ? '': renderPriorityIcon(cards[0].priority)}</div>
+          <div className="card-priority"> {sortBy === 'priority' ? '': renderPriorityIcon(card.priority)}</div>
           <div className="card-tag"><Fr /> <p> </p>{card.tag}</div>
         </div>
       </div>
