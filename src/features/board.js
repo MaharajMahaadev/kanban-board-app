@@ -3,8 +3,8 @@ import List from './list';
 import { useState } from 'react';
 
 function Board({ data }) {
-    const [sortBy, setSortBy] = useState('user'); // Default sorting is by user
-    const [orderBy, setOrderBy] = useState('priority'); // Default ordering is by priority
+    const [sortBy, setSortBy] = useState('user'); 
+    const [orderBy, setOrderBy] = useState('priority'); 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
     let sortedData;
@@ -69,7 +69,7 @@ function Board({ data }) {
           }
   
           return (
-            <List key={index} title={group.title} cards={orderedCards} />
+            <List title={group.title} cards={orderedCards} sortBy={sortBy}/>
           );
         })}
       </div>
