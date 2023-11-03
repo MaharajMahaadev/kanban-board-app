@@ -1,0 +1,129 @@
+/* styles.css */
+.App {
+    position: fixed;
+    width:100%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #e5e3e3b0;
+    justify-content: space-between;
+    overflow: auto;
+  }
+
+  .dropdown-container{
+     display: inline;
+     border-radius: 20px;
+  }
+  
+  .dropdown-menu{
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    justify-content: space-between; /* Spread items across the container */
+    align-items: center;
+    background-color: rgba(235, 234, 234, 0.97);
+    border: 1px solid #ccc; /* Add a border for clarity */
+    padding: 5px; /* Add padding for spacing */
+    max-width: 20%; /* Ensure the container doesn't exceed its parent's width */
+    overflow: auto; /* Add horizontal scrollbar if content overflows */
+    box-sizing: border-box;
+    z-index: 9999; /* Set a high z-index value to place the div on top */
+    position: absolute;
+    margin-top: 5px;
+    .dropdown1,
+    .dropdown2 {
+      flex: 0 0 calc(50% - 10px); /* Set a 50% width with some spacing */
+      display: flex;
+      padding: 2% 2% 0% 2%;
+      align-items: center;
+      margin-right: 10px; /* Add spacing between dropdown elements */
+    }
+
+    #sorting{
+        margin: 10%;
+    }
+    #ordering{
+        margin: 12%;
+    }
+  
+    select {
+      width: 100%; /* Make select elements fill their containers */
+    }
+  }
+  .dropdown1 {
+    display: flex; /* Use flex layout to make children display side by side */
+    align-items: center; /* Vertically center the children */
+  
+    label {
+      margin-right: 10px; /* Add some spacing between label and select */
+    }
+  }
+  
+  .dropdown2{
+    display:block;
+  }
+  
+  .board {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px;
+  }
+  
+  .list {
+    background: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    z-index: 1;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  .card-id{
+    padding: 5% 70% 0% 1%;
+    color:#747272;
+  }
+
+  .card-title{
+    padding: 5% 1% 0% 1%;
+  }
+
+  .card-footer {
+    padding: 5% 1% 2% 0px;
+    display: flex;
+    scale: 88%
+  }
+
+  .card-priority {
+    border: 1px solid #ccc;
+    color:#585656;
+    border-radius: 6%;
+    padding: 2%;
+  }
+
+  .card-tag {
+    border: 1px solid #ccc;
+    color:#747272;
+    border-radius: 6%;
+    margin-left: 5%;
+    padding: 3% 1% 0% 1%;
+  }
+
+  
