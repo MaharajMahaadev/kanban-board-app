@@ -6,27 +6,50 @@ function Board({ data }) {
     const [sortBy, setSortBy] = useState(localStorage.getItem('sortBy') || 'user'); 
     const [orderBy, setOrderBy] = useState(localStorage.getItem('orderBy') || 'priority'); 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const userOrder = {}, priorities = {}, status = {};
   
-    let sortedData;
-  
-    if (sortBy === 'user') {
-      sortedData = data.map(user => ({
-        title: user.user,
-        cards: user.cards,
-      }));
-    } else {
-      sortedData = data.reduce((accumulator, user) => {
-        user.cards.forEach(card => {
-          const groupKey = sortBy === 'status' ? card.status : card.priority;
-          if (!accumulator[groupKey]) {
-            accumulator[groupKey] = { title: sortBy === 'status' ? card.status : `Priority ${card.priority}`, cards: [] };
-          }
-          accumulator[groupKey].cards.push(card);
-        });
-        return accumulator;
-      }, {});
-  
-      sortedData = Object.values(sortedData);
+    if (sortBy ==='user' ) {
+
+      data.map(ticket => {
+        if(!userOrder[ticket[1]]){
+          userOrder[ticket[1]] = [];
+        }
+
+        userOrder[ticket[1]].push(ticket);
+      })
+    }
+    else if(sortBy==='priority'){
+
+      data.map(ticket => {
+        if(!priorities[ticket[0].priority]){
+          priorities[ticket[0].priority] = [];
+        }
+
+        priorities[ticket[0].priority].push(ticket);
+      })
+    }
+    else if(sortBy==='status'){
+
+      data.map(ticket => {
+        if(!status[ticket[0].status]){
+          status[ticket[0].status] = [];
+        }
+
+        status[ticket[0].status].push(ticket);
+      })
+    }
+
+    function showList(){
+      if(sortBy==='user'){
+        return <List cards={userOrder} sortBy={sortBy} orderBy={orderBy}/>
+      }
+      else if(sortBy==='priority'){
+        return <List cards={priorities} sortBy={sortBy} orderBy={orderBy}/>
+      }
+      else if(sortBy==='status'){
+        return <List cards={status} sortBy={sortBy} orderBy={orderBy}/>
+      }
     }
   
     const toggleDropdown = () => {
@@ -39,9 +62,9 @@ function Board({ data }) {
     }, [sortBy, orderBy]);
   
     return (
-      <div className="board">
-        <div className="dropdown-container">
-          <button onClick={toggleDropdown} className="dropdown-button">
+      <>
+      <div className="dropdown-container">
+        <button onClick={toggleDropdown} className="dropdown-button">
             Display
           </button>
           {isDropdownOpen && (
@@ -64,20 +87,10 @@ function Board({ data }) {
             </div>
           )}
         </div>
-        {sortedData.map((group, index) => {
-          let orderedCards = [...group.cards];
-  
-          if (orderBy === 'priority') {
-            orderedCards.sort((a, b) => a.priority - b.priority);
-          } else if (orderBy === 'title') {
-            orderedCards.sort((a, b) => a.title.localeCompare(b.title));
-          }
-  
-          return (
-            <List title={group.title} cards={orderedCards} sortBy={sortBy}/>
-          );
-        })}
+      <div className="board">
+        { showList() }
       </div>
+      </>
     );
   }
   

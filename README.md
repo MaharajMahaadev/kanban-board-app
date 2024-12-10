@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Kanban Board App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The **Kanban Board App** is a basic task management application built with React.js and CSS, featuring Material-UI icons for a polished and user-friendly interface. This app provides a visual way to organize tasks or work items in the form of cards. It allows grouping and sorting of cards based on different criteria such as users, priority, and status.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Overview
 
-### `npm test`
+The **Kanban Board App** simplifies task management by allowing users to visualize tasks grouped by criteria such as **assigned user**, **priority**, or **status**. Cards representing tasks provide detailed information, such as task priority, current status, task description, card number, and the user to whom the task is assigned. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app supports dynamic grouping and sorting, ensuring that tasks can be easily organized and accessed as per the user’s requirements.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Dynamic Grouping**:
+   - Group cards by:
+     - **User**: Cards are displayed under the users they are assigned to.
+     - **Priority**: Cards are categorized by their priority levels.
+     - **Status**: Cards are grouped by the current status of the task (e.g., "In Progress," "Completed").
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Sorting Options**:
+   - **Priority Sorting**: Sort cards within each group by priority in **high-to-low** order.
+   - **Alphabetical Sorting**: Sort cards by their titles in ascending order (A-Z).
 
-### `npm run eject`
+3. **Card Details**:
+   - Each card displays:
+     - Task Priority
+     - Current Status
+     - Task Information
+     - Card Number
+     - Assigned User
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Responsive UI**:
+   - The app is built with React.js and styled with CSS for a modern and responsive user interface.
+   - **Material-UI icons** provide intuitive and quick visual cues.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **Frontend**
+- **React.js**: Used for building the user interface.
+- **CSS**: For custom styling and responsive design.
+- **Material-UI**: Icons and components for a clean and professional look.
 
-## Learn More
+### **Data Management**
+- Data is fetched from a static `data.js` file, which contains an array of card objects with task details.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Installation
 
-### Code Splitting
+### Prerequisites
+- Node.js installed on your system
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Steps
+1. Clone the repository:
 
-### Analyzing the Bundle Size
+2. Navigate to the project directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Making a Progressive Web App
+4. Start the application:
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5. Open your browser and navigate to `http://localhost:3000`.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Usage
 
-### Deployment
+1. **Viewing Cards**:
+   - Open the app to view cards grouped under the selected grouping criteria.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. **Grouping Options**:
+   - Use the **dropdown menu** to switch between grouping options:
+     - **User**
+     - **Priority**
+     - **Status**
 
-### `npm run build` fails to minify
+3. **Sorting**:
+   - After selecting a grouping, sort the cards using the **sorting dropdown**:
+     - **By Priority**: High-to-low or low-to-high.
+     - **By Title**: A-Z alphabetical sorting.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. **Card Details**:
+   - Each card will display:
+     - Priority (e.g., High, Medium, Low)
+     - Status (e.g., In Progress, Completed)
+     - Information (task description)
+     - Card Number
+     - Assigned User

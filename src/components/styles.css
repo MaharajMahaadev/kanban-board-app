@@ -1,9 +1,5 @@
 .App {
-    position: fixed;
-    width:100%;
-    height: 100%;
-    display: flex; 
-    flex-direction: column; 
+    display: block;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -11,10 +7,10 @@
     background-color: #e8e7e7b0;
     justify-content: space-between;
     overflow: auto;
+    padding: 20px;
   }
 
   .dropdown-container{
-     display: inline;
      border-radius: 20px;
   }
   
@@ -23,22 +19,21 @@
     flex-wrap: wrap; 
     justify-content: space-between; 
     align-items: center;
+    right: 42%;
+    top:25vh;
     background-color: rgba(235, 234, 234, 0.97);
     border: 1px solid #ccc; 
-    padding: 5px;
-    max-width: 20%; 
+    padding: 10px;
+    width: 200px;
     overflow: auto; 
     box-sizing: border-box;
-    z-index: 9999; 
+    z-index: 10; 
     position: absolute;
-    margin-top: 5px;
     .dropdown1,
     .dropdown2 {
-      flex: 0 0 calc(50% - 10px); 
-      display: flex;
-      padding: 2% 2% 0% 2%;
+      display: inline-flex;
       align-items: center;
-      margin-right: 2px; 
+      width: 100%;
     }
 
     #sorting{
@@ -67,19 +62,21 @@
   
   .board {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
-    margin: 20px;
-    min-width: 1300px;
-    
+    margin: 20px; 
+    @media only screen and (max-width: 600px) {
+      display:grid;
+      grid-auto-flow: row;
+      justify-content: center;
+  }  
   }
   
   .list {
-    background: transparent;
-    border-radius: 5px;
-    padding: 10px;
-    width: 250px;
+    width: 260px;
     z-index: 1;
+    justify-items: center;
   }
   
   .card-container {
@@ -89,52 +86,65 @@
   }
   
   .card {
-    background-color: #fff;
+    background-color: white;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 3px;
     margin-bottom: 5px;
-    cursor: pointer;
+    height: 200px;
+    width: 230px;
+    align-content:first baseline;
+  }
+
+  .card-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
   }
 
   .card-id{
-    padding: 6% 60% 0% 1%;
     color:#747272;
-    display: inline-flex;
+    margin-right: 5%;
   }
 
   .card-title{
-    padding: 5% 1% 0% 1%;
+    padding: 0 1px 0 1px;
+    margin-bottom: 5%;
   }
 
   .card-footer {
     padding: 5% 1% 2% 0px;
     display: flex;
-    scale: 88%
+    scale: 88%;
+    bottom: 2px;
   }
 
   .card-priority {
     border: 1px solid #ccc;
     color:#585656;
     border-radius: 6%;
-    padding: 2%;
+    margin: 2%;
+    display: inline-flex;
+    align-items: center;
   }
 
   .card-tag {
     border: 1px solid #ccc;
     color:#747272;
     border-radius: 6%;
-    margin-left: 5%;
-    padding: 3% 2% 0% 2%;
-    font-size: 110%;
     display:inline-flex;
+    place-items: center;
+    scale: 80%;
   }
 
   .priority-icon{
-    display:inline-flex;
+    display: block;
+    scale: 120%;
     padding: 5%;
-    font-size:180%;
     font-weight: bold;
+    height: 10vh;
+    align-content: center;
   }
 
 
